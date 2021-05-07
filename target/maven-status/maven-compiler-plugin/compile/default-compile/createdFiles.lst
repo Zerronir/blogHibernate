@@ -1,0 +1,14 @@
+com\blog\controllers\UserController.class
+com\blog\config\HibernateConfig.class
+com\blog\entities\Job.class
+com\blog\config\AnnotationWebAppInitializer.class
+com\blog\services\UserService.class
+com\blog\controllers\LoginController.class
+com\blog\repositories\UserRepo.class
+com\blog\controllers\MainController.class
+com\blog\entities\Person.class
+com\blog\entities\User.class
+com\blog\config\AppConfig.class
+com\blog\entities\Blog.class
+com\blog\repositories\PersonRepo.class
+com\blog\services\UserServiceImpl.class
