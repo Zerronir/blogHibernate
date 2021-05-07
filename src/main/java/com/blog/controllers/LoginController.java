@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -20,7 +21,7 @@ public class LoginController {
     HttpSession httpSession;
 
     @PostMapping("/doLogin")
-    public String doLogin(@RequestBody String email, @RequestBody String password) {
+    public String doLogin(@RequestParam String email, @RequestParam String password) {
 
         if (httpSession.getAttribute("user") != null) {
             return "redirect:index";
