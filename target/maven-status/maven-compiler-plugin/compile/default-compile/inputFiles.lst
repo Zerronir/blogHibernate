@@ -3,12 +3,16 @@ D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\UserService.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\config\AppConfig.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\LoginController.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\BlogService.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\User.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\UserServiceImpl.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\UserController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\PersonRepo.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\Person.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\MainController.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\BlogServiceImpl.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\Blog.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\UserRepo.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\AdminPageController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\config\HibernateConfig.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\BlogRepo.java

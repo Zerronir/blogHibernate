@@ -5,32 +5,38 @@
 <div class="d-flex flex-column p-3 text-white bg-dark h-100" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4">Sidebar</span>
+        <span class="fs-4">Panell d'administració</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="/" class="nav-link active" aria-current="page">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                Home
+                Inici
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/blogList" class="nav-link" aria-current="page">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                Llistat de blogs
             </a>
         </li>
         <li>
             <a href="#" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                Dashboard
+                Posts
             </a>
         </li>
         <li>
             <a href="#" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                Orders
+                Comentaris
             </a>
         </li>
         <li>
             <a href="#" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                Products
+                Usuaris
             </a>
         </li>
         <li>
@@ -43,15 +49,34 @@
     <hr>
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>mdo</strong>
+            <strong>Perfil</strong>
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
+        <a href="/doLogout" id="logout" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle">
+            <strong>Tancar sessió</strong>
+        </a>
     </div>
 </div>
+
+<div class="modal" tabindex="-1" id="loadingModal">
+    <div class="modal-dialog">
+        <div class="modal-content align-content-center">
+            <div class="spinner-border align-self-center mt-2 mb-2" style="width: 12rem; height: 12rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-center">Carregant, espera per-favor</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#logout').on('click', function (e) {
+        e.preventDefault();
+        $('#loadingModal').modal("toggle");
+
+        setTimeout(function () {
+            window.location.href = "/doLogout";
+        }, 1000);
+
+    })
+</script>

@@ -5,10 +5,7 @@ import com.blog.services.UserService;
 import org.hibernate.QueryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,11 +17,16 @@ public class LoginController {
     @Autowired
     HttpSession httpSession;
 
+    @GetMapping("/doLogin")
+    public String doLoginGet() {
+        return "redirect:";
+    }
+
     @PostMapping("/doLogin")
     public String doLogin(@RequestParam String email, @RequestParam String password) {
 
         if (httpSession.getAttribute("user") != null) {
-            return "redirect:index";
+            return "redirect:";
         } else {
             try {
 
@@ -32,7 +34,7 @@ public class LoginController {
                     User u = userService.findUserByEmail(email);
                     if(!u.getEmail().isEmpty()){
                         httpSession.setAttribute("user", u);
-                        return "redirect:users";
+                        return "redirect:/";
                     } else {
                         return "redirect:login";
                     }
@@ -44,6 +46,12 @@ public class LoginController {
         }
 
         return "redirect:login";
+    }
+
+    @GetMapping("/doLogout")
+    public String logoutUser () {
+        httpSession.invalidate();
+        return "redirect:/";
     }
 
 }

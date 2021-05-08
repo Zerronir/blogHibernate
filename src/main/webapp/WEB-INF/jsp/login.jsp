@@ -18,7 +18,7 @@
 <body>
 
 <main class="container">
-    <form id="loginForm" action="${pageContext.request.contextPath}/doLogin" method="post" >
+    <form id="loginForm" action="/doLogin" method="post" >
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" onkeyup="checkIsValidEmail(this)" class="form-control" id="email" name="email" aria-describedby="emailHelp">
@@ -32,7 +32,7 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <button type="button" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Submit</button>
     </form>
 </main>
 
@@ -78,29 +78,20 @@
 
 
 
-    })
+    });
+
+    $(document).on('#loginForm', 'submit', function (e) {
+        e.preventDefault();
+        submitForm();
+    });
 
     const submitForm = () => {
 
         $('#loadingModal').modal("toggle");
 
         setTimeout(function () {
-            $.ajax({
-                url: '/doLogin',
-                type: 'post',
-                data: {
-                    email: document.getElementById("email").value,
-                    password: document.getElementById("password").value
-                },
-                success: function (e) {
-                    location.replace("/users")
-                    $('#loadingModal').modal("toggle");
-                },
-                error: function (e) {
-                    $('#loadingModal').modal("toggle");
-                }
-            })
-        }, 3000);
+            $('#loginForm').trigger('submit');
+        }, 1000);
     }
 
 </script>
