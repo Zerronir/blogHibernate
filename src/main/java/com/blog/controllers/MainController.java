@@ -21,8 +21,6 @@ public class MainController {
     @Autowired
     HttpSession httpSession;
 
-
-
     @GetMapping("/")
     @Transactional
     public ModelAndView index(Model model) {
@@ -38,13 +36,4 @@ public class MainController {
 
         return v;
     }
-
-    @GetMapping("/test")
-    @ResponseBody
-    public String test() {
-        return "Hola!!!";
-    }
-
-
-
 }

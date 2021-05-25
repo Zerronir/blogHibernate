@@ -27,7 +27,7 @@ public class AdminPageController {
     @GetMapping("/posts")
     public String showPosts() {
         if(httpSession.getAttribute("user") != null) {
-            return "blogAdmin/postList";
+            return "adminPanel/postList";
         }
         return "redirect:/";
     }
@@ -43,7 +43,7 @@ public class AdminPageController {
             model.addAttribute("blogCounter", counter);
 
             // Carregam el JSP
-            return "blogAdmin/blogList";
+            return "adminPanel/blogList";
         }
 
         return "redirect:/";
@@ -52,7 +52,7 @@ public class AdminPageController {
     @GetMapping("/createBlog")
     public String createBlogGet(){
         if(httpSession.getAttribute("user") != null) {
-            return "blogAdmin/createBlog";
+            return "adminPanel/createBlog";
         }
         return "redirect:/";
     }
@@ -68,7 +68,7 @@ public class AdminPageController {
             blog.setUserSet(u);
 
             blogService.createBlog(blog);
-            return "blogAdmin/blogList";
+            return "adminPanel/blogList";
         }
 
         return "redirect:/";

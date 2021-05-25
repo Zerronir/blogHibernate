@@ -26,9 +26,23 @@ public class BlogController {
             String name = blogName.replace("-", " ");
             Blog blog = blogService.findByNameEquals(name);
             model.addAttribute("blog", blog);
-            return "blogAdmin/index";
+            return "adminBlog/index";
         }
 
         return "redirect:/";
     }
+
+    @GetMapping("/{blogName}/postList")
+    public String postList(@PathVariable(value = "blogName") String blogName, Model model) {
+
+        if(httpSession.getAttribute("user") != null) {
+            String name = blogName.replace("-", " ");
+            Blog blog = blogService.findByNameEquals(name);
+            model.addAttribute("blog", blog);
+            return "adminBlog/postList";
+        }
+
+        return "redirect:/";
+    }
+
 }

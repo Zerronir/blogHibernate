@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Service
@@ -22,5 +25,22 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findUserByEmail(String email) {
         return userRepo.findUserByEmail(email);
+    }
+
+    @Override
+    public User save(User user) {
+        return userRepo.save(user);
+    }
+
+    // Custom methods
+    public String encryptedPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(password.getBytes());
+        byte[] dg = md.digest();
+        StringBuilder hexString = new StringBuilder();
+        for(byte b : dg) {
+            hexString.append(Integer.toHexString(0xFF & b));
+        }
+        return hexString.toString();
     }
 }

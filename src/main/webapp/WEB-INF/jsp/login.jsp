@@ -61,14 +61,17 @@
         if(re.test(String(email).toLowerCase())) {
             document.getElementById('email').classList.remove("is-invalid");
             document.getElementById('emailHelp').classList.add("d-none");
+            $('#submitBtn').attr("disabled", false);
         } else {
             document.getElementById('email').classList.add("is-invalid");
             document.getElementById('emailHelp').classList.remove("d-none");
+            $('#submitBtn').attr("disabled", true);
         }
 
         if(email === null || email === '' || email === undefined) {
             document.getElementById('email').classList.remove("is-invalid");
             document.getElementById('emailHelp').classList.add("d-none");
+            $('#submitBtn').attr("disabled", false);
         }
 
     }
