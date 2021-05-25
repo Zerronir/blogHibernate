@@ -16,3 +16,4 @@ com\blog\services\BlogService.class
 com\blog\entities\Blog.class
 com\blog\repositories\PersonRepo.class
 com\blog\services\UserServiceImpl.class
+com\blog\controllers\BlogController.class

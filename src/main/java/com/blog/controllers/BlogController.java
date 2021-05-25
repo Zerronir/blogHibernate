@@ -4,6 +4,7 @@ import com.blog.entities.Blog;
 import com.blog.services.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -19,10 +20,12 @@ public class BlogController {
     HttpSession httpSession;
 
     @GetMapping("/{blogName}")
-    public String blogAdmin(@PathVariable(value = "blogName") String blogName) {
+    public String blogAdmin(@PathVariable(value = "blogName") String blogName, Model model) {
 
         if(httpSession.getAttribute("user") != null) {
-            Blog blog = blogService.findByNameEquals(blogName);
+            String name = blogName.replace("-", " ");
+            Blog blog = blogService.findByNameEquals(name);
+            model.addAttribute("blog", blog);
             return "blogAdmin/index";
         }
 

@@ -1,8 +1,10 @@
 package com.blog.entities;
 
+import jdk.vm.ci.meta.Local;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Set;
 

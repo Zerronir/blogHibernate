@@ -15,6 +15,7 @@ public class User {
     String lastname;
     String nickname;
     String email;
+    String password;
     LocalDate created_at;
     LocalDate updated_at;
 
@@ -61,6 +62,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDate getCreated_at() {

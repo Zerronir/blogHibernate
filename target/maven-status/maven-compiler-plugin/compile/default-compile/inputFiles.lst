@@ -14,5 +14,6 @@ D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\Blog.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\UserRepo.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\AdminPageController.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\BlogController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\config\HibernateConfig.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\BlogRepo.java

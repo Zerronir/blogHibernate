@@ -19,6 +19,7 @@
 
     <div>
         <h2>Benvingut al panell d'administració ${userName} </h2>
+        <h3>${blog.name}</h3>
     </div>
 </div>
 

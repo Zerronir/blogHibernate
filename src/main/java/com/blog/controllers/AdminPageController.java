@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Controller
@@ -19,10 +22,12 @@ public class AdminPageController {
     @Autowired
     HttpSession httpSession;
 
+    static LocalDate localDate;
+
     @GetMapping("/posts")
     public String showPosts() {
         if(httpSession.getAttribute("user") != null) {
-            return "postList";
+            return "blogAdmin/postList";
         }
         return "redirect:/";
     }
@@ -38,7 +43,32 @@ public class AdminPageController {
             model.addAttribute("blogCounter", counter);
 
             // Carregam el JSP
-            return "blogList";
+            return "blogAdmin/blogList";
+        }
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/createBlog")
+    public String createBlogGet(){
+        if(httpSession.getAttribute("user") != null) {
+            return "blogAdmin/createBlog";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping("/createBlog")
+    public String createBlogs(@RequestParam String name, @RequestParam String category) {
+        if(httpSession.getAttribute("user") != null) {
+            User u = (User) httpSession.getAttribute("user");
+            Blog blog = new Blog();
+            blog.setName(name);
+            blog.setCategory(category);
+            blog.setCreated_at(LocalDate.now());
+            blog.setUserSet(u);
+
+            blogService.createBlog(blog);
+            return "blogAdmin/blogList";
         }
 
         return "redirect:/";
