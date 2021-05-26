@@ -31,7 +31,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">${blog.name}</h5>
                                     <p class="card-text">${blog.category}</p>
-                                    <a href="/${fn:replace(blog.name, " ", "-")}" class="btn btn-primary">Entrar al
+                                    <a href="/admin/${fn:replace(blog.name, " ", "-")}" class="btn btn-primary">Entrar al
                                         blog</a>
                                 </div>
                             </div>

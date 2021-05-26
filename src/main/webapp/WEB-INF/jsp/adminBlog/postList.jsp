@@ -10,13 +10,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<div class="d-flex align-items-stretch h-100">
-    <div class="h-100">
-        <jsp:include page="includes/header.jsp" />
-    </div>
-
+<jsp:include page="includes/header.jsp" />
+<div class="d-flex align-items-center container">
     <div>
-        <h2>Benvingut al panell d'administració</h2>
+        <h3>${blog.name}</h3>
+        <ul>
+            <c:choose>
+                <c:when test="${postCount > 0}">
+                    <li><a href="/createPost">Crear un nou post</a></li>
+                    <c:forEach var="post" items="${postList}">
+                        <li>${post.name} <a href="/${post.id}">Veure blog</a></li>
+                    </c:forEach>
+                </c:when>
+
+                <c:otherwise>
+                    <a href="/createPost">Crear un nou post</a>
+                </c:otherwise>
+            </c:choose>
+        </ul>
     </div>
 </div>
 

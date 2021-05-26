@@ -10,10 +10,12 @@ D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\PostRepo.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\UserController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\PostServiceImpl.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\CommentController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\MainController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\BlogServiceImpl.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\Blog.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\UserRepo.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\PostController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\AdminPageController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\BlogController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\config\HibernateConfig.java

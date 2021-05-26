@@ -9,6 +9,7 @@ import java.util.Set;
 @Repository
 public interface PostRepo extends JpaRepository<Post, Long> {
     Set<Post> getAllByBlogIdEquals(Long blog_id);
+    Set<Post> getAllByCategoryEquals(Long catId);
     Post findByIdEquals(Long post_id);
     Post save(Post post);
 }

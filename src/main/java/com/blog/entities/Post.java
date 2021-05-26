@@ -2,6 +2,7 @@ package com.blog.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity(name = "posts")
 public class Post {
@@ -20,6 +21,18 @@ public class Post {
     @OneToOne(optional = true)
     @JoinColumn(name = "blog_id", nullable = false)
     Blog blog;
+
+    @OneToMany
+    @JoinColumn(name = "category")
+    Set<Category> categorySet;
+
+    public Set<Category> getCategorySet() {
+        return categorySet;
+    }
+
+    public void setCategorySet(Set<Category> categorySet) {
+        this.categorySet = categorySet;
+    }
 
     public void setId(Long id) {
         this.id = id;

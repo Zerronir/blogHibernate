@@ -11,21 +11,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/${fn:replace(blog.name, " ", "-")}">Inici <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/admin/${fn:replace(blog.name, " ", "-")}">Inici <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/${fn:replace(blog.name, " ", "-")}/postList">Llistat de posts</a>
+                <a class="nav-link" href="/admin/${fn:replace(blog.name, " ", "-")}/postList">Llistat de posts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/${fn:replace(blog.name, " ", "-")}/comentaris">Comentaris</a>
+                <a class="nav-link" href="/admin/${fn:replace(blog.name, " ", "-")}/comentaris">Comentaris</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Llistes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/${fn:replace(blog.name, " ", "-")}/usersList">Llista d'usuaris</a>
-                    <a class="dropdown-item" href="/${fn:replace(blog.name, " ", "-")}/postList">Another action</a>
+                    <a class="dropdown-item" href="/admin/${fn:replace(blog.name, " ", "-")}/usersList">Llista d'usuaris</a>
+                    <a class="dropdown-item" href="/admin/${fn:replace(blog.name, " ", "-")}/postList">Another action</a>
                 </div>
             </li>
             <c:choose>

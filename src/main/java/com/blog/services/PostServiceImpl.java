@@ -3,9 +3,13 @@ package com.blog.services;
 import com.blog.entities.Post;
 import com.blog.repositories.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
+@Service
+@Transactional
 public class PostServiceImpl implements PostService{
     @Autowired
     PostRepo postRepo;
@@ -13,6 +17,11 @@ public class PostServiceImpl implements PostService{
     @Override
     public Set<Post> getAllByBlogIdEquals(Long blog_id) {
         return postRepo.getAllByBlogIdEquals(blog_id);
+    }
+
+    @Override
+    public Set<Post> getAllByCategoryEquals(Long category) {
+        return postRepo.getAllByCategoryEquals(category);
     }
 
     @Override
