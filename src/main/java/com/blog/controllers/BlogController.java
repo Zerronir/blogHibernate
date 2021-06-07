@@ -2,6 +2,7 @@ package com.blog.controllers;
 
 import com.blog.entities.Blog;
 import com.blog.entities.Post;
+import com.blog.entities.User;
 import com.blog.services.BlogService;
 import com.blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -26,12 +29,12 @@ public class BlogController {
     @Autowired
     HttpSession httpSession;
 
-    @GetMapping("/admin/{blogName}")
-    public String blogAdmin(@PathVariable(value = "blogName") String blogName, Model model) {
+    // ADMIN SECTION //
+    @GetMapping("/admin/{slug}")
+    public String blogAdmin(@PathVariable(value = "slug") String slug, Model model) {
 
         if(httpSession.getAttribute("user") != null) {
-            String name = blogName.replace("-", " ");
-            Blog blog = blogService.findByNameEquals(name);
+            Blog blog = blogService.findBySlugEquals(slug);
             model.addAttribute("blog", blog);
             return "adminBlog/index";
         }
@@ -39,12 +42,11 @@ public class BlogController {
         return "redirect:/";
     }
 
-    @GetMapping("/admin/{blogName}/postList")
-    public String postList(@PathVariable(value = "blogName") String blogName, Model model) {
+    @GetMapping("/admin/{slug}/postList")
+    public String postList(@PathVariable(value = "slug") String slug, Model model) {
 
         if(httpSession.getAttribute("user") != null) {
-            String name = blogName.replace("-", " ");
-            Blog blog = blogService.findByNameEquals(name);
+            Blog blog = blogService.findBySlugEquals(slug);
             Set<Post> postList = postService.getAllByBlogIdEquals(blog.getId());
             int postCount = postList.size();
             model.addAttribute("blog", blog);
@@ -55,5 +57,35 @@ public class BlogController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/admin/{slug}/createPost")
+    public String createPostGet(@PathVariable(value="slug") String slug, Model model) {
+        if(httpSession.getAttribute("user") != null) {
+            Blog blog = blogService.findBySlugEquals(slug);
+            model.addAttribute("blog", blog);
+            return "adminBlog/createPost";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping("/admin/{slug}/createPost")
+    public String createPostPost(@PathVariable(value = "slug") String slug, @RequestParam String title, @RequestParam String content) {
+        if(httpSession.getAttribute("user") != null) {
+            User author = (User) httpSession.getAttribute("user");
+            Blog blog = blogService.findBySlugEquals(slug);
+            Post post = new Post();
+            post.setName(title);
+            post.setBlog(blog);
+            post.setSlug(author.getId() + "-" + title.replace(" ", "-").toLowerCase());
+            post.setAuthor(author);
+            postService.save(post);
+
+            return "redirect:/admin/"+slug;
+        }
+
+        return "redirect:/";
+    }
+    // END ADMIN SECTION //
+
 
 }

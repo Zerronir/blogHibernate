@@ -26,12 +26,13 @@
                 <c:choose>
 
                     <c:when test="${blogCounter > 0}">
+                        <a href="/createBlog">Crear nou blog</a>
                         <c:forEach items="${blogList}" var="blog">
                             <div class="card col-lg-6">
                                 <div class="card-body">
                                     <h5 class="card-title">${blog.name}</h5>
                                     <p class="card-text">${blog.category}</p>
-                                    <a href="/${fn:replace(blog.name, " ", "-")}" class="btn btn-primary">Entrar al
+                                    <a href="/admin/${blog.slug}" class="btn btn-primary">Entrar al
                                         blog</a>
                                 </div>
                             </div>

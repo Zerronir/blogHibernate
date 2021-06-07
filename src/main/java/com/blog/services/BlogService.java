@@ -9,6 +9,6 @@ import java.util.Set;
 @Service
 public interface BlogService {
     Set<Blog> getAllByUserSetIdEquals(Long user_id);
-    Blog findByNameEquals(String name);
+    Blog findBySlugEquals(String name);
     boolean createBlog(Blog blog);
 }

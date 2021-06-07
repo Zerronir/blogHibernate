@@ -15,6 +15,7 @@ public class Blog {
     Long id;
 
     String name;
+    String slug;
     String category;
     LocalDate created_at;
 
@@ -37,6 +38,14 @@ public class Blog {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public String getCategory() {

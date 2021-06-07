@@ -9,6 +9,6 @@ import java.util.Set;
 @Repository
 public interface BlogRepo extends JpaRepository<Blog, Long> {
     Set<Blog> getAllByUserSetIdEquals(Long user_id);
-    Blog findByNameEquals(String name);
+    Blog findBySlugEquals(String name);
     Blog save(Blog blog);
 }

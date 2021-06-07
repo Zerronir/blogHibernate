@@ -2,7 +2,9 @@ com\blog\config\AnnotationWebAppInitializer.class
 com\blog\controllers\LoginController.class
 com\blog\controllers\MainController.class
 com\blog\entities\User.class
+com\blog\repositories\CommentRepo.class
 com\blog\config\AppConfig.class
+com\blog\services\CommentServiceImpl.class
 com\blog\controllers\PostController.class
 com\blog\entities\Blog.class
 com\blog\services\UserServiceImpl.class
@@ -10,14 +12,17 @@ com\blog\entities\Post.class
 com\blog\controllers\BlogController.class
 com\blog\entities\Comments.class
 com\blog\services\PostServiceImpl.class
+com\blog\services\CommentService.class
 com\blog\controllers\UserController.class
 com\blog\controllers\AdminPageController.class
 com\blog\config\HibernateConfig.class
 com\blog\repositories\PostRepo.class
 com\blog\services\UserService.class
 com\blog\repositories\UserRepo.class
+com\blog\entities\Category.class
 com\blog\services\BlogServiceImpl.class
 com\blog\services\PostService.class
 com\blog\controllers\CommentController.class
+com\blog\controllers\BlogViewController.class
 com\blog\repositories\BlogRepo.class
 com\blog\services\BlogService.class

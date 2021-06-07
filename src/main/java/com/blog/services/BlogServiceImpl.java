@@ -23,8 +23,8 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public Blog findByNameEquals(String name) {
-        return blogRepo.findByNameEquals(name);
+    public Blog findBySlugEquals(String name) {
+        return blogRepo.findBySlugEquals(name);
     }
 
     @Override

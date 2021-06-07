@@ -17,14 +17,14 @@
         <ul>
             <c:choose>
                 <c:when test="${postCount > 0}">
-                    <li><a href="/createPost">Crear un nou post</a></li>
+                    <li><a href="/admin/${blog.slug}/createPost">Crear un nou post</a></li>
                     <c:forEach var="post" items="${postList}">
-                        <li>${post.name} <a href="/${post.id}">Veure blog</a></li>
+                        <li>${post.name} <a href="/${post.slug}">Veure blog</a></li>
                     </c:forEach>
                 </c:when>
 
                 <c:otherwise>
-                    <a href="/createPost">Crear un nou post</a>
+                    <a href="/admin/${blog.slug}/createPost">Crear un nou post</a>
                 </c:otherwise>
             </c:choose>
         </ul>

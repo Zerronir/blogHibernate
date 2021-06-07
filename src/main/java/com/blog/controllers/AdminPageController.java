@@ -63,6 +63,7 @@ public class AdminPageController {
             User u = (User) httpSession.getAttribute("user");
             Blog blog = new Blog();
             blog.setName(name);
+            blog.setSlug(u.getId() + "-" + name.replace(" ", "-").toLowerCase());
             blog.setCategory(category);
             blog.setCreated_at(LocalDate.now());
             blog.setUserSet(u);

@@ -11,6 +11,7 @@ public class Post {
     private Long id;
 
     String name;
+    String slug;
     String content;
     LocalDate created_at;
 
@@ -25,6 +26,18 @@ public class Post {
     @OneToMany
     @JoinColumn(name = "category")
     Set<Category> categorySet;
+
+    @OneToMany
+    @JoinColumn(name = "comment_id", nullable = true)
+    Set<Comments> comments;
+
+    public Set<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comments> comments) {
+        this.comments = comments;
+    }
 
     public Set<Category> getCategorySet() {
         return categorySet;
@@ -44,6 +57,14 @@ public class Post {
 
     public String getName() {
         return name;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public void setName(String name) {

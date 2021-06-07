@@ -18,8 +18,8 @@ public class Comments {
     @Nullable
     User comment_author;
 
-    @OneToOne(optional = true)
-    @JoinColumn(name = "posts_id", nullable = false)
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "post_id", nullable = false)
     Post original_post;
 
     public Long getId() {

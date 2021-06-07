@@ -24,22 +24,19 @@ public class BlogViewController {
     @Autowired
     PostService postService;
 
-    @GetMapping("/{blogName}")
-    public String index(@PathVariable(value = "blogName") String blogName, Model model) {
-
-        if(httpSession.getAttribute("user") != null) {
-            Blog blog = blogService.findByNameEquals(blogName);
-            httpSession.setAttribute("blog", blog); // Set the blog into the http session variable
-            Set<Post> postList = postService.getAllByBlogIdEquals(blog.getId());
-            model.addAttribute("postList", postList);
-            // Create the view
-            return "blogView/index";
-        }
-
-        return "redirect:/";
+    // HEADER LINKS //
+    @GetMapping("/{slug}")
+    public String index(@PathVariable(value = "slug") String slug, Model model) {
+        Blog blog = blogService.findBySlugEquals(slug);
+        Set<Post> postList = postService.getAllByBlogIdEquals(blog.getId());
+        model.addAttribute("blog", blog);
+        model.addAttribute("postList", postList);
+        return "blogView/index";
     }
 
-    @GetMapping("/{blogName}/{category}")
+    // FIN HEADER LINKS //
+
+    /*@GetMapping("/{blogName}/{category}")
     public String getPostByCategory(@PathVariable(value = "category") String category) {
 
         if(httpSession.getAttribute("user") != null) {
@@ -48,6 +45,6 @@ public class BlogViewController {
         }
 
         return "redirect:/";
-    }
+    }*/
 
 }
