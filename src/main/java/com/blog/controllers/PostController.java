@@ -1,7 +1,7 @@
 package com.blog.controllers;
 
 import com.blog.entities.Blog;
-import com.blog.entities.Comments;
+import com.blog.entities.UserComments;
 import com.blog.entities.Post;
 import com.blog.services.BlogService;
 import com.blog.services.CommentService;
@@ -27,9 +27,6 @@ public class PostController {
     @Autowired
     BlogService blogService;
 
-    @Autowired
-    CommentService commentService;
-
     @GetMapping("/admin/{blogSlug}/{postSlug}")
     public String viewPost(@PathVariable(value = "blogSlug") String blog, @PathVariable(value = "postSlug") String post) {
 
@@ -40,18 +37,4 @@ public class PostController {
 
         return "redirect:/";
     }
-
-    @GetMapping("/{blogSlug}/{postSlug}")
-    public String viewPostReader(@PathVariable(value = "blogSlug") String blogSlug, @PathVariable(value = "postSlug") String postSlug, Model model) {
-        Blog blog = blogService.findBySlugEquals(blogSlug);
-        Post post = postService.findBySlugEquals(postSlug);
-        Set<Comments> commentsList = commentService.getAllByPostIdEquals(post.getId());
-
-        model.addAttribute("post", post);
-        model.addAttribute("blog", blog);
-        model.addAttribute("comments", commentsList);
-
-        return "blogView/postView";
-    }
-
 }

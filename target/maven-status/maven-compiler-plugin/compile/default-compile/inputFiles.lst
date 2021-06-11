@@ -1,13 +1,13 @@
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\CommentServiceImpl.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\config\AppConfig.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\LoginController.java
-D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\Comments.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\BlogService.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\User.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\PostServiceImpl.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\repositories\CommentRepo.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\MainController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\BlogServiceImpl.java
+D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\entities\UserComments.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\services\CommentService.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\controllers\PostController.java
 D:\FPGSDAW\Segundo\Servidor\Recuperaciones\Blog\src\main\java\com\blog\config\HibernateConfig.java

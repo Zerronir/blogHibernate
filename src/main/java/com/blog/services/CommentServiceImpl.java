@@ -1,6 +1,7 @@
 package com.blog.services;
 
-import com.blog.entities.Comments;
+import com.blog.entities.Post;
+import com.blog.entities.UserComments;
 import com.blog.repositories.CommentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,12 @@ public class CommentServiceImpl implements CommentService{
     CommentRepo commentRepo;
 
     @Override
-    public Set<Comments> getAllByPostIdEquals(Long post_id) {
-        return commentRepo.getAllByPostIdEquals(post_id);
+    public Set<UserComments> findAllByPost_idEquals(Post post_id) {
+        return commentRepo.findAllByPost(post_id);
+    }
+
+    @Override
+    public UserComments save(UserComments comment) {
+        return commentRepo.save(comment);
     }
 }

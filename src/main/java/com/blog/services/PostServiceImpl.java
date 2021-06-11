@@ -1,6 +1,6 @@
 package com.blog.services;
 
-import com.blog.entities.Comments;
+import com.blog.entities.UserComments;
 import com.blog.entities.Post;
 import com.blog.repositories.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;

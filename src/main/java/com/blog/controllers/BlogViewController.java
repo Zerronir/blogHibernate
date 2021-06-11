@@ -2,8 +2,10 @@ package com.blog.controllers;
 
 import com.blog.entities.Blog;
 import com.blog.entities.Category;
+import com.blog.entities.UserComments;
 import com.blog.entities.Post;
 import com.blog.services.BlogService;
+import com.blog.services.CommentService;
 import com.blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import java.util.Set;
 
 @Controller
 public class BlogViewController {
+    @Autowired
     HttpSession httpSession;
 
     @Autowired
@@ -23,6 +26,9 @@ public class BlogViewController {
 
     @Autowired
     PostService postService;
+
+    @Autowired
+    CommentService commentService;
 
     // HEADER LINKS //
     @GetMapping("/{slug}")
@@ -33,18 +39,19 @@ public class BlogViewController {
         model.addAttribute("postList", postList);
         return "blogView/index";
     }
-
     // FIN HEADER LINKS //
 
-    /*@GetMapping("/{blogName}/{category}")
-    public String getPostByCategory(@PathVariable(value = "category") String category) {
+    @GetMapping("/{blogSlug}/{postSlug}")
+    public String viewPostReader(@PathVariable(value = "blogSlug") String blogSlug, @PathVariable(value = "postSlug") String postSlug, Model model) {
+        Blog blog = blogService.findBySlugEquals(blogSlug);
+        Post post = postService.findBySlugEquals(postSlug);
+        Set<UserComments> comments = commentService.findAllByPost_idEquals(post);
 
-        if(httpSession.getAttribute("user") != null) {
-            Long l = 1L;
-            Set<Post> categoryList = postService.getAllByCategoryEquals(l);
-        }
+        model.addAttribute("post", post);
+        model.addAttribute("blog", blog);
+        model.addAttribute("comments", comments);
 
-        return "redirect:/";
-    }*/
+        return "blogView/postView";
+    }
 
 }

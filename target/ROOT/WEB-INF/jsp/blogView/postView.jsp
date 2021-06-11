@@ -21,10 +21,12 @@
             <c:when test="${comments != null}">
                 <div>
                     <form action="/postComment" method="post">
+                        <input type="hidden" name="post" value="${post.id}">
                         <div class="form-group">
-                            <label for="commentContent">Comentari</label>
-                            <textarea class="form-control" name="commentContent" id="commentContent"></textarea>
+                            <label>Comentari</label>
+                            <textarea class="form-control" name="commentContent"></textarea>
                         </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
 
@@ -38,11 +40,13 @@
 
             </c:when>
             <c:otherwise>
-                <form action="/postComment" method="post">
+                <form action="/postComment" method="post" class="form d-flex flex-column">
+                    <input type="hidden" name="post" value="${post.id}">
                     <div class="form-group">
-                        <label for="commentContent">Comentari</label>
-                        <textarea class="form-control" name="commentContent" id="commentContent"></textarea>
+                        <label>Comentari</label>
+                        <textarea class="form-control" name="commentContent"></textarea>
                     </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </c:otherwise>
         </c:choose>

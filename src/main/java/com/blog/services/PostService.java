@@ -1,7 +1,7 @@
 package com.blog.services;
 
 import com.blog.entities.Category;
-import com.blog.entities.Comments;
+import com.blog.entities.UserComments;
 import com.blog.entities.Post;
 import org.springframework.stereotype.Service;
 

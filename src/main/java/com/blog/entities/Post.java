@@ -1,5 +1,7 @@
 package com.blog.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
@@ -27,15 +29,14 @@ public class Post {
     @JoinColumn(name = "category")
     Set<Category> categorySet;
 
-    @OneToMany
-    @JoinColumn(name = "comment_id", nullable = true)
-    Set<Comments> comments;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    Set<UserComments> comments;
 
-    public Set<Comments> getComments() {
+    public Set<UserComments> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comments> comments) {
+    public void setComments(Set<UserComments> comments) {
         this.comments = comments;
     }
 
