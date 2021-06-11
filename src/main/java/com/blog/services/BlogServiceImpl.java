@@ -18,6 +18,11 @@ public class BlogServiceImpl implements BlogService {
     BlogRepo blogRepo;
 
     @Override
+    public Blog findByIdEquals(Long blogId) {
+        return blogRepo.findByIdEquals(blogId);
+    }
+
+    @Override
     public Set<Blog> getAllByUserSetIdEquals(Long user_id) {
         return blogRepo.getAllByUserSetIdEquals(user_id);
     }

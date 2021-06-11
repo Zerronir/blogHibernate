@@ -21,6 +21,7 @@ com\blog\services\UserService.class
 com\blog\repositories\UserRepo.class
 com\blog\entities\Category.class
 com\blog\services\BlogServiceImpl.class
+com\blog\utils\Formatters.class
 com\blog\services\PostService.class
 com\blog\controllers\CommentController.class
 com\blog\controllers\BlogViewController.class
