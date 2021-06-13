@@ -10,4 +10,9 @@
         <function-class>com.blog.utils.Formatters</function-class>
         <function-signature>java.lang.String formattedDate(java.time.LocalDate)</function-signature>
     </function>
+    <function>
+        <name>renderPost</name>
+        <function-class>com.blog.utils.Formatters</function-class>
+        <function-signature>java.lang.String renderPost(java.lang.String)</function-signature>
+    </function>
 </taglib>

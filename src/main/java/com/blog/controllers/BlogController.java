@@ -69,13 +69,14 @@ public class BlogController {
     }
 
     @PostMapping("/admin/{slug}/createPost")
-    public String createPostPost(@PathVariable(value = "slug") String slug, @RequestParam String title, @RequestParam String content) {
+    public String createPostPost(@PathVariable(value = "slug") String slug, @RequestParam String _csrfToken, @RequestParam String title, @RequestParam String content) {
         if(httpSession.getAttribute("user") != null) {
             User author = (User) httpSession.getAttribute("user");
             Blog blog = blogService.findBySlugEquals(slug);
             Post post = new Post();
             post.setName(title);
             post.setBlog(blog);
+            post.setContent(content);
             post.setSlug(author.getId() + "-" + title.replace(" ", "-").toLowerCase());
             post.setAuthor(author);
             postService.save(post);
@@ -85,6 +86,34 @@ public class BlogController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/admin/{slug}/updatePost/{post}")
+    public String updatePostGet(@PathVariable(value = "slug") String slug, @PathVariable(value = "post") String post, Model model) {
+        if(httpSession.getAttribute("user") != null) {
+            Post upd = postService.findBySlugEquals(post);
+            Blog blog = blogService.findBySlugEquals(slug);
+            model.addAttribute("post", upd);
+            model.addAttribute("blog", blog);
+            return "/adminBlog/updatePost";
+        }
+
+        return "redirect:/";
+    }
+
+    @PostMapping("/admin/{slug}/updatePost/{post}")
+    public String updatePost(@PathVariable(value = "slug") String blog, @PathVariable(value = "post") String postSlug, @RequestParam String title, @RequestParam String _csrfToken, @RequestParam String content) {
+        if(httpSession.getAttribute("user") != null) {
+            User u = (User) httpSession.getAttribute("user");
+            Post post = postService.findBySlugEquals(postSlug);
+            post.setName(title);
+            post.setContent(content);
+            postService.save(post);
+            return "redirect:/admin/"+blog;
+        }
+
+        return "redirect:/";
+    }
+
     // END ADMIN SECTION //
 
 

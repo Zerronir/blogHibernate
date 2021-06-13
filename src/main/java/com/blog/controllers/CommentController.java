@@ -33,22 +33,28 @@ public class CommentController {
 
     @PostMapping("/postComment")
     public String createCommentForPost(@RequestParam String commentContent, @RequestParam Long postId) {
-        Post post = postService.findByIdEquals(postId);
-        Blog blog = blogService.findByIdEquals(post.getBlog().getId());
-        if(commentContent.length() < 150) {
-            User u = (User) httpSession.getAttribute("user");
-            UserComments comment = new UserComments();
-            comment.setPost(post);
-            if (u != null) {
-                comment.setUser_id(u);
+        if(postId > 0) {
+            Post post = postService.findByIdEquals(postId);
+            Blog blog = blogService.findByIdEquals(post.getBlog().getId());
+            if(commentContent.length() < 150) {
+                User u = (User) httpSession.getAttribute("user");
+                UserComments comment = new UserComments();
+                comment.setPost(post);
+
+                if (u != null) {
+                    comment.setUser_id(u);
+                }
+
+                comment.setPosted_at(localDate);
+                comment.setText(commentContent);
+                commentService.save(comment);
+
+                return "redirect:/"+blog.getSlug()+"/"+post.getSlug();
+
             }
-            comment.setPosted_at(localDate);
-            comment.setText(commentContent);
-            commentService.save(comment);
-
             return "redirect:/"+blog.getSlug()+"/"+post.getSlug();
-
+        } else {
+            return "redirect:/";
         }
-        return "redirect:/"+blog.getSlug()+"/"+post.getSlug();
     }
 }

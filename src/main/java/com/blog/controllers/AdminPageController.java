@@ -3,6 +3,7 @@ package com.blog.controllers;
 import com.blog.entities.Blog;
 import com.blog.entities.User;
 import com.blog.services.BlogService;
+import com.blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,8 @@ public class AdminPageController {
 
     @Autowired
     HttpSession httpSession;
+
+
 
     static LocalDate localDate;
 
@@ -58,7 +61,7 @@ public class AdminPageController {
     }
 
     @PostMapping("/createBlog")
-    public String createBlogs(@RequestParam String name, @RequestParam String category) {
+    public String createBlogs(Model model, @RequestParam String name, @RequestParam String _csrfToken, @RequestParam String category) {
         if(httpSession.getAttribute("user") != null) {
             User u = (User) httpSession.getAttribute("user");
             Blog blog = new Blog();
@@ -71,6 +74,7 @@ public class AdminPageController {
             blogService.createBlog(blog);
             return "adminPanel/blogList";
         }
+        model.addAttribute("csrfToken", _csrfToken);
 
         return "redirect:/";
     }

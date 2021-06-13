@@ -36,4 +36,10 @@ public class MainController {
 
         return v;
     }
+
+    @GetMapping("/error")
+    public String errorPage() {
+        return "/error";
+    }
+
 }

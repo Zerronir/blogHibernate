@@ -20,7 +20,7 @@
 <div class="d-flex flex-column align-items-center container">
     <div class="w-100">
         <h3>${post.name}</h3>
-        <p>${post.content}</p>
+        <p>${ofn:renderPost(post.content)}</p>
     </div>
     <div class="w-100 d-flex flex-column">
         <c:choose>
@@ -51,7 +51,7 @@
                             </c:choose>
                         </p>
 
-                        <p>${comment.text}</p>
+                        <p>${ofn:renderPost(comment.text)}</p>
                     </div>
                 </c:forEach>
 
