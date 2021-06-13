@@ -19,6 +19,7 @@
 
     <div class="container-fluid">
         <form action="/createBlog" method="post">
+            <input type="text" name="_csrfToken" value="${csrfToken}" hidden>
             <div class="form-group">
                 <label for="name">Nom del blog</label>
                 <input type="text" class="form-control" name="name" id="name" aria-describedby="name">

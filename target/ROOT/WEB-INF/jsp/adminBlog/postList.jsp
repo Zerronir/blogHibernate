@@ -20,7 +20,7 @@
                     <li><a href="/admin/${blog.slug}/createPost">Crear un nou post</a></li>
                     <c:forEach var="post" items="${postList}">
                         <li>${post.name} <a href="/${blog.slug}/${post.slug}" class="btn btn-primary">Veure el post</a> <a href="/admin/${blog.slug}/updatePost/${post.slug}" class="btn btn-secondary">Actualitzar post</a></li>
-                        <li></li>
+                        <li><a href="/${blog.slug}/deletePost/${post.slug}" class="btn btn-danger">Eliminar post</a></li>
                     </c:forEach>
                 </c:when>
 

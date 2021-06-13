@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
         <a class="navbar-brand" href="/${blog.slug}">${blog.name}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,6 +28,8 @@
                         <a class="dropdown-item" href="/admin/${blog.slug}/postList">Another action</a>
                     </div>
                 </li>
+            </ul>
+            <ul class="navbar-nav form-inline my-2 my-lg-0">
                 <c:choose>
                     <c:when test="${user != null}">
                         <li class="nav-item">
@@ -39,12 +40,13 @@
                         </li>
                     </c:when>
                     <c:otherwise>
-                        <span></span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Iniciar sessió</a>
+                        </li>
                     </c:otherwise>
                 </c:choose>
             </ul>
         </div>
-    </div>
 </nav>
 
 <div class="modal" tabindex="-1" id="loadingModal">

@@ -16,15 +16,15 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="/blogList" class="nav-link" aria-current="page">
+            <a href="/blogList" class="nav-link">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 Llistat de blogs
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="/sharedBlogs" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                Posts
+                Llistat de blogs compartits amb jo
             </a>
         </li>
         <li>

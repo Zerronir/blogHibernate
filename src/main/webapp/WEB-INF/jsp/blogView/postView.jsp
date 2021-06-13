@@ -46,12 +46,38 @@
                                 </c:when>
 
                                 <c:otherwise>
-                                    Anònim el <strong>${ofn:formatDate(comment.posted_at)}</strong>
+                                    <c:if test="${comment.user_id == null && comment.approved == 1}">
+                                        Anònim el <strong>${ofn:formatDate(comment.posted_at)}</strong>
+                                    </c:if>
                                 </c:otherwise>
                             </c:choose>
                         </p>
 
-                        <p>${ofn:renderPost(comment.text)}</p>
+                        <p>
+                            <c:choose>
+
+                                <c:when test="${comment.user_id != null || comment.approved == 1}">
+                                    ${ofn:renderPost(comment.text)}
+                                </c:when>
+
+                                <c:otherwise>
+                                    <c:choose>
+                                        <c:when test="${comment.approved == 0}">
+                                            <c:if test="${blog.userSet.id eq user.id}">
+                                                ${ofn:renderPost(comment.text)}
+                                                <a href="/approveComment/${comment.id}" class="btn btn-primary">Aprovar comentari</a>
+                                                <a href="/deleteComment/${comment.id}" class="btn btn-danger">Eliminar comentari</a>
+                                            </c:if>
+                                        </c:when>
+
+                                        <c:otherwise>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:otherwise>
+                            </c:choose>
+                        </p>
+
                     </div>
                 </c:forEach>
 

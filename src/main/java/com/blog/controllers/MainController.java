@@ -28,6 +28,7 @@ public class MainController {
 
         if(httpSession.getAttribute("user") != null) {
             User u = (User) httpSession.getAttribute("user");
+            model.addAttribute("user", u);
             model.addAttribute("userName", u.getName() + " " + u.getLastname());
             v.setViewName("index");
         } else {

@@ -21,6 +21,16 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
+    public UserComments findByIdEquals(Long id) {
+        return commentRepo.findByIdEquals(id);
+    }
+
+    @Override
+    public Long deleteByIdEquals(Long id) {
+        return commentRepo.deleteByIdEquals(id);
+    }
+
+    @Override
     public UserComments save(UserComments comment) {
         return commentRepo.save(comment);
     }

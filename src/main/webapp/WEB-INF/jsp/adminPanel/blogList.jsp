@@ -34,6 +34,7 @@
                                     <p class="card-text">${blog.category}</p>
                                     <a href="/admin/${blog.slug}" class="btn btn-primary">Entrar al
                                         blog</a>
+                                    <a href="/admin/deleteBlog/${blog.slug}" class="btn btn-danger">Eliminar el blog</a>
                                 </div>
                             </div>
                         </c:forEach>

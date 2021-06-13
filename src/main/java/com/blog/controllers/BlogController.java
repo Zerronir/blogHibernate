@@ -76,7 +76,7 @@ public class BlogController {
             Post post = new Post();
             post.setName(title);
             post.setBlog(blog);
-            post.setContent(content);
+            post.setContent(content.replace("<script>", "").replace("</script>", ""));
             post.setSlug(author.getId() + "-" + title.replace(" ", "-").toLowerCase());
             post.setAuthor(author);
             postService.save(post);
@@ -106,7 +106,8 @@ public class BlogController {
             User u = (User) httpSession.getAttribute("user");
             Post post = postService.findBySlugEquals(postSlug);
             post.setName(title);
-            post.setContent(content);
+            String escapedText = content.replace("</script>", "").replace("<script>", "");
+            post.setContent(escapedText);
             postService.save(post);
             return "redirect:/admin/"+blog;
         }

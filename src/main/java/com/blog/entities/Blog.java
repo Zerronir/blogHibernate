@@ -24,6 +24,9 @@ public class Blog {
     @Nullable
     User userSet;
 
+    @OneToMany(mappedBy = "accessTo", cascade = CascadeType.ALL, orphanRemoval = true)
+    Set<User> userList;
+
     public Long getId() {
         return id;
     }

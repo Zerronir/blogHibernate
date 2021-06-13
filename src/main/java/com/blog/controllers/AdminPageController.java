@@ -3,7 +3,6 @@ package com.blog.controllers;
 import com.blog.entities.Blog;
 import com.blog.entities.User;
 import com.blog.services.BlogService;
-import com.blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -77,6 +76,21 @@ public class AdminPageController {
         model.addAttribute("csrfToken", _csrfToken);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/sharedBlogs")
+    public String viewAllBlogs(Model model) {
+
+        if(httpSession.getAttribute("user") != null) {
+            User u = (User) httpSession.getAttribute("user");
+            Set<Blog> blogList = blogService.findAllByUserSetNot(u);
+            model.addAttribute("blogList", blogList);
+            return "adminPanel/allBlogs";
+        }
+
+        Set<Blog> blogList = blogService.getAllByNameNotNull();
+        model.addAttribute("blogList", blogList);
+        return "adminPanel/allBlogs";
     }
 
 }

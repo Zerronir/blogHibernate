@@ -33,6 +33,7 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Submit</button>
+        <a href="/sharedBlogs" class="btn btn-secondary">Entrar com a invitat</a>
     </form>
 </main>
 

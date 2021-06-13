@@ -24,6 +24,11 @@ public class User {
     @Nullable
     Set<Blog> blog;
 
+    @ManyToOne
+    @JoinColumn(name = "blog_shared")
+    @Nullable
+    User accessTo;
+
     public Long getId() {
         return id;
     }

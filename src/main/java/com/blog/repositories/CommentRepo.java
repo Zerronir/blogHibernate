@@ -11,5 +11,7 @@ import java.util.Set;
 public interface CommentRepo extends JpaRepository<UserComments, Long> {
     //Set<UserComments> getAllByPost_idEquals(Long post_id);
     Set<UserComments> findAllByPost(Post post);
+    UserComments findByIdEquals(Long id);
+    Long deleteByIdEquals(Long id);
     UserComments save(UserComments comment);
 }

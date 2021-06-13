@@ -13,6 +13,16 @@ public class UserComments {
     String text;
     LocalDate posted_at;
 
+    public int getApproved() {
+        return approved;
+    }
+
+    public void setApproved(int approved) {
+        this.approved = approved;
+    }
+
+    int approved;
+
     @OneToOne(optional = true)
     @JoinColumn(name = "user_id")
     @Nullable

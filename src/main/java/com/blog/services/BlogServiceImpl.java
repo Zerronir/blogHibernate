@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.util.Set;
 
 @Service
@@ -23,8 +22,18 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Set<Blog> getAllByNameNotNull() {
+        return blogRepo.getAllByNameNotNull();
+    }
+
+    @Override
     public Set<Blog> getAllByUserSetIdEquals(Long user_id) {
         return blogRepo.getAllByUserSetIdEquals(user_id);
+    }
+
+    @Override
+    public Set<Blog> findAllByUserSetNot(User user_id) {
+        return blogRepo.findAllByUserSetNot(user_id);
     }
 
     @Override

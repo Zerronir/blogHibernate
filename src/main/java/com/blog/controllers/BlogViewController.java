@@ -1,12 +1,7 @@
 package com.blog.controllers;
 
-import com.blog.entities.Blog;
-import com.blog.entities.Category;
-import com.blog.entities.UserComments;
-import com.blog.entities.Post;
-import com.blog.services.BlogService;
-import com.blog.services.CommentService;
-import com.blog.services.PostService;
+import com.blog.entities.*;
+import com.blog.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +41,13 @@ public class BlogViewController {
         Blog blog = blogService.findBySlugEquals(blogSlug);
         Post post = postService.findBySlugEquals(postSlug);
         Set<UserComments> comments = commentService.findAllByPost_idEquals(post);
+
+        model.addAttribute("user", null);
+
+        if(httpSession.getAttribute("user") != null) {
+            User u = (User) httpSession.getAttribute("user");
+            model.addAttribute("user", u);
+        }
 
         model.addAttribute("post", post);
         model.addAttribute("blog", blog);
