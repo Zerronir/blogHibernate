@@ -1,0 +1,7 @@
+Para arrancar bien el programa la base de datos se ejecuta:
+
+- Sobre el puerto 3306
+- Con el usuario root
+- Con la contraseña root
+
+Si todo es correcto solo se ha de compilar.
