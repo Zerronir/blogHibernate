@@ -17,6 +17,15 @@
     <div>
         <h3>${blog.name}</h3>
     </div>
+
+    <div>
+        <c:if test="${error eq true}">
+            <div class="alert alert-danger" role="alert">
+                ${error}
+            </div>
+        </c:if>
+    </div>
+
 </div>
 
 

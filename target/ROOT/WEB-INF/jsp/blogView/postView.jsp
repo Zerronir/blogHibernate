@@ -18,8 +18,8 @@
 %>
 <jsp:include page="includes/header.jsp" />
 <div class="d-flex flex-column align-items-center container">
-    <div class="w-100">
-        <h3>${post.name}</h3>
+    <div class="w-100 h-75">
+        <h3 class="display-3 text-uppercase">${post.name}</h3>
         <p>${ofn:renderPost(post.content)}</p>
     </div>
     <div class="w-100 d-flex flex-column">

@@ -69,14 +69,26 @@ public class BlogController {
     }
 
     @PostMapping("/admin/{slug}/createPost")
-    public String createPostPost(@PathVariable(value = "slug") String slug, @RequestParam String _csrfToken, @RequestParam String title, @RequestParam String content) {
+    public String createPostPost(@PathVariable(value = "slug") String slug, Model model, @RequestParam String _csrfToken, @RequestParam String title, @RequestParam String content) throws Exception {
         if(httpSession.getAttribute("user") != null) {
             User author = (User) httpSession.getAttribute("user");
             Blog blog = blogService.findBySlugEquals(slug);
             Post post = new Post();
+            if(title.length() == 0) {
+                model.addAttribute("errorTitol", true);
+                return "redirect:/admin/"+slug+"/createPost";
+            }
             post.setName(title);
+
             post.setBlog(blog);
+
+            if(content.length() == 0 || content.equals("")) {
+                String error = "El camp de contigut no pot estar buit";
+                model.addAttribute("error", error);
+                return "redirect:/admin/"+slug+"/createPost";
+            }
             post.setContent(content.replace("<script>", "").replace("</script>", ""));
+
             post.setSlug(author.getId() + "-" + title.replace(" ", "-").toLowerCase());
             post.setAuthor(author);
             postService.save(post);
@@ -106,19 +118,22 @@ public class BlogController {
             model.addAttribute("blog", blog);
             return "/adminBlog/updatePost";
         }
-
         return "redirect:/";
     }
 
     @PostMapping("/admin/{slug}/updatePost/{post}")
-    public String updatePost(@PathVariable(value = "slug") String blog, @PathVariable(value = "post") String postSlug, @RequestParam String title, @RequestParam String _csrfToken, @RequestParam String content) {
+    public String updatePost(Model model, @PathVariable(value = "slug") String blog, @PathVariable(value = "post") String postSlug, @RequestParam String title, @RequestParam String _csrfToken, @RequestParam String content) {
         if(httpSession.getAttribute("user") != null) {
             User u = (User) httpSession.getAttribute("user");
             Post post = postService.findBySlugEquals(postSlug);
             post.setName(title);
             String escapedText = content.replace("</script>", "").replace("<script>", "");
             post.setContent(escapedText);
-            postService.save(post);
+            try {
+                postService.save(post);
+            } catch (Exception ex) {
+                model.addAttribute("error", ex.getMessage());
+            }
             return "redirect:/admin/"+blog;
         }
 
