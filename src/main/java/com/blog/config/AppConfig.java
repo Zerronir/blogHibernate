@@ -23,24 +23,16 @@ public class AppConfig implements WebMvcConfigurer {
         resolver.setViewClass(JstlView.class);
         return resolver;
     }
-/*
-    @Bean
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-        MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
-        ObjectMapper objectMapper = jsonConverter.getObjectMapper();
-        objectMapper.registerModule(new Hibernate5Module());
-        return jsonConverter;
-    }
-    */
 
     @Bean
     public List<String> getInterceptorMapping(){
         List<String> interceptorMapingList = new ArrayList<>();
         interceptorMapingList.add("/admin/{slug}/createPost");
+        interceptorMapingList.add("/admin/{slug}/updatePost/{post}");
         interceptorMapingList.add("/postComment");
         interceptorMapingList.add("/createBlog");
         interceptorMapingList.add("/doRegister");
-        interceptorMapingList.add("/createNotes");
+        interceptorMapingList.add("/doLogin");
         return interceptorMapingList;
     }
 
