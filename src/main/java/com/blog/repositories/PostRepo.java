@@ -13,5 +13,6 @@ public interface PostRepo extends JpaRepository<Post, Long> {
     //Set<Post> getAllByCategoryEquals(Long catId);
     Post findByIdEquals(Long post_id);
     Post findBySlugEquals(String slug);
+    Long deleteByIdEquals(Long id);
     Post save(Post post);
 }

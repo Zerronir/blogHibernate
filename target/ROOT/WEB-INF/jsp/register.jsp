@@ -18,40 +18,44 @@
 <body>
 
 <main class="container">
-    <form id="registerForm" action="/doRegister" method="post" >
-        <div class="mb-3">
-            <label for="name" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
-        <div class="mb-3">
-            <label for="lastname" class="form-label">Llinatges</label>
-            <input type="text" class="form-control" id="lastname" name="lastname">
-        </div>
-        <div class="mb-3">
-            <label for="nickname" class="form-label">Nickname</label>
-            <input type="text" class="form-control" id="nickname" name="nickname">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" onkeyup="checkIsValidEmail(this)" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text text-danger d-none">Per favor, introdueix un email vàlid, exemple: jhon@doe.com</div>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Contrasenya</label>
-            <input type="password" onkeyup="checkSecondPassEquals(this.value)" class="form-control" id="password" name="password">
-            <div id="passwordHelp" class="form-text text-danger d-none">Les dues contrasenyes han de coincidir</div>
-        </div>
-        <div class="mb-3">
-            <label for="password1" class="form-label">Repeteix la contrasenya</label>
-            <input type="password" onkeyup="checkPassEquals(this.value)" class="form-control" id="password1" name="password1">
-            <div id="passwordHelp1" class="form-text text-danger d-none">Les dues contrasenyes han de coincidir</div>
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="d-flex flex-column justify-content-center mt-5 mb-5">
+        <h1 class="display-1 text-center text-uppercase">Registra't</h1>
+    </div>
+
+    <div class="d-flex flex-column">
+        <form id="registerForm" action="/doRegister" method="post" >
+            <div class="mb-3">
+                <label for="name" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Llinatges</label>
+                <input type="text" class="form-control" id="lastname" name="lastname">
+            </div>
+            <div class="mb-3">
+                <label for="nickname" class="form-label">Nickname</label>
+                <input type="text" class="form-control" id="nickname" name="nickname">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Adreça electrònica</label>
+                <input type="email" onkeyup="checkIsValidEmail(this)" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text text-danger d-none">Per favor, introdueix un email vàlid, exemple: jhon@doe.com</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contrasenya</label>
+                <input type="password" onkeyup="checkSecondPassEquals(this.value)" class="form-control" id="password" name="password">
+                <div id="passwordHelp" class="form-text text-danger d-none">Les dues contrasenyes han de coincidir</div>
+            </div>
+            <div class="mb-3">
+                <label for="password1" class="form-label">Repeteix la contrasenya</label>
+                <input type="password" onkeyup="checkPassEquals(this.value)" class="form-control" id="password1" name="password1">
+                <div id="passwordHelp1" class="form-text text-danger d-none">Les dues contrasenyes han de coincidir</div>
+            </div>
+            <button type="submit" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Registra't</button>
+            <a href="/sharedBlogs" class="btn btn-secondary">Entrar com a convidat</a>
+            <a href="/" class="btn btn-danger">Tornar enrera</a>
+        </form>
+    </div>
 </main>
 
 <div class="modal" tabindex="-1" id="loadingModal">

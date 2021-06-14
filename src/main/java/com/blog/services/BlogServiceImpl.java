@@ -42,6 +42,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Long deleteByIdEquals(Long id) {
+        return blogRepo.deleteByIdEquals(id);
+    }
+
+    @Override
     public boolean createBlog(Blog blog) {
         try {
             blogRepo.save(blog);

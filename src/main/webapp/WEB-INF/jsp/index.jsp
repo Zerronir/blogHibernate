@@ -12,13 +12,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></head>
 <body>
+<jsp:include page="includes/header.jsp" />
 <div class="d-flex align-items-stretch h-100">
-    <div class="h-100">
-        <jsp:include page="includes/header.jsp" />
-    </div>
-
-    <div>
-        <h2>Benvingut al panell d'administració ${userName} </h2>
+    <div class="container">
+        <div>
+            <h2>Benvingut al panell d'administració ${userName} </h2>
+        </div>
     </div>
 
 </div>

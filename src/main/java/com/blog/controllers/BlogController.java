@@ -87,6 +87,16 @@ public class BlogController {
         return "redirect:/";
     }
 
+    @GetMapping("/admin/deleteBlog/{id}")
+    public String deleteBlog(@PathVariable(value = "id") Long id, Model model) {
+        if(httpSession.getAttribute("user") != null) {
+            blogService.deleteByIdEquals(id);
+            model.addAttribute("success", "Blog eliminat correctament");
+            return "redirect:/admin/blogList";
+        }
+        return "redirect:/";
+    }
+
     @GetMapping("/admin/{slug}/updatePost/{post}")
     public String updatePostGet(@PathVariable(value = "slug") String slug, @PathVariable(value = "post") String post, Model model) {
         if(httpSession.getAttribute("user") != null) {

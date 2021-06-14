@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="content">Contingut del post</label>
-                <textarea class="form-control" name="content" id="content">${post.content}</textarea>
+                <textarea class="form-control" name="content" id="content" cols="10" rows="30">${post.content}</textarea>
             </div>
             <%--<div class="form-group">
                 <label for="category">Categoría</label>

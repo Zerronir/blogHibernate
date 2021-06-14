@@ -12,16 +12,25 @@
 <body>
 <jsp:include page="includes/header.jsp" />
 <div class="d-flex align-items-center container">
-    <div>
+    <div class="d-flex flex-column">
         <h3>${blog.name}</h3>
-        <ul>
             <c:choose>
                 <c:when test="${postCount > 0}">
-                    <li><a href="/admin/${blog.slug}/createPost">Crear un nou post</a></li>
-                    <c:forEach var="post" items="${postList}">
-                        <li>${post.name} <a href="/${blog.slug}/${post.slug}" class="btn btn-primary">Veure el post</a> <a href="/admin/${blog.slug}/updatePost/${post.slug}" class="btn btn-secondary">Actualitzar post</a></li>
-                        <li><a href="/${blog.slug}/deletePost/${post.slug}" class="btn btn-danger">Eliminar post</a></li>
-                    </c:forEach>
+                    <div>
+                        <a href="/admin/${blog.slug}/createPost">Crear un nou post</a>
+                    </div>
+                    <div class="d-flex row justify-content-between">
+                        <c:forEach var="post" items="${postList}">
+                            <div class="card col-lg-5 mb-3">
+                                <div class="card-body">
+                                    <p class="card-text">${post.name}</p>
+                                    <a href="/${blog.slug}/${post.slug}" class="btn btn-primary">Veure el post</a>
+                                    <a href="/admin/${blog.slug}/updatePost/${post.slug}" class="btn btn-secondary">Actualitzar post</a>
+                                    <a href="/${blog.slug}/deletePost/${post.slug}" class="btn btn-danger">Eliminar post</a>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
                 </c:when>
 
                 <c:otherwise>

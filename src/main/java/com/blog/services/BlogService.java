@@ -13,5 +13,6 @@ public interface BlogService {
     Set<Blog> getAllByUserSetIdEquals(Long user_id);
     Set<Blog> findAllByUserSetNot(User user_id);
     Blog findBySlugEquals(String name);
+    Long deleteByIdEquals(Long id);
     boolean createBlog(Blog blog);
 }

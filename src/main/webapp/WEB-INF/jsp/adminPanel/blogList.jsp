@@ -5,36 +5,34 @@
 
 <html>
 <head>
-    <title>Hello World!</title>
+    <title>Admin</title>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<div class="d-flex align-items-stretch h-100">
-    <div class="h-100">
-        <jsp:include page="../includes/header.jsp"/>
-    </div>
+<jsp:include page="../includes/header.jsp"/>
+<div class="d-flex align-items-center">
 
-    <div class="mt-3">
-        <div>
+    <div class="container d-flex flex-column">
+        <div class="d-flex flex-column mb-5">
             <h2>Llistat de blogs</h2>
+            <a href="/createBlog" class="btn btn-secondary">Crear nou blog</a>
         </div>
 
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container">
+            <div class="d-flex row justify-content-between">
                 <c:choose>
 
                     <c:when test="${blogCounter > 0}">
-                        <a href="/createBlog">Crear nou blog</a>
+
                         <c:forEach items="${blogList}" var="blog">
-                            <div class="card col-lg-6">
+                            <div class="card col-lg-5 mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">${blog.name}</h5>
                                     <p class="card-text">${blog.category}</p>
-                                    <a href="/admin/${blog.slug}" class="btn btn-primary">Entrar al
-                                        blog</a>
-                                    <a href="/admin/deleteBlog/${blog.slug}" class="btn btn-danger">Eliminar el blog</a>
+                                    <a href="/admin/${blog.slug}" class="btn btn-primary">Entrar al blog</a>
+                                    <a href="/admin/deleteBlog/${blog.id}" class="btn btn-danger">Eliminar el blog</a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -42,7 +40,9 @@
 
 
                     <c:otherwise>
-                        <a href="/createBlog">Crear nou blog</a>
+                        <c:if test="${user != null}">
+                            <a href="/createBlog">Crear nou blog</a>
+                        </c:if>
                     </c:otherwise>
 
                 </c:choose>

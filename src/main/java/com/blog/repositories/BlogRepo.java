@@ -14,5 +14,6 @@ public interface BlogRepo extends JpaRepository<Blog, Long> {
     Set<Blog> getAllByUserSetIdEquals(Long user_id);
     Set<Blog> findAllByUserSetNot(User user_id);
     Blog findBySlugEquals(String name);
+    Long deleteByIdEquals(Long id);
     Blog save(Blog blog);
 }

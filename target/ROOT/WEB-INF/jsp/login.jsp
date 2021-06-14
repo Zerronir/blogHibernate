@@ -18,23 +18,25 @@
 <body>
 
 <main class="container">
-    <form id="loginForm" action="/doLogin" method="post" >
-        <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" onkeyup="checkIsValidEmail(this)" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text text-danger d-none">Per favor, introdueix un email vàlid, exemple: jhon@doe.com</div>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Submit</button>
-        <a href="/sharedBlogs" class="btn btn-secondary">Entrar com a invitat</a>
-    </form>
+    <div class="d-flex flex-column justify-content-center mb-5 mt-5">
+        <h3 class="display-1 text-center text-uppercase">Aplicació de blogs</h3>
+    </div>
+    <div class="d-flex flex-column">
+        <form id="loginForm" action="/doLogin" method="post" >
+            <div class="mb-3">
+                <label for="email" class="form-label">Adreça electrònica</label>
+                <input type="email" onkeyup="checkIsValidEmail(this)" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text text-danger d-none">Per favor, introdueix un email vàlid, exemple: jhon@doe.com</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contrasenya</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" id="submitBtn" onclick="submitForm()" class="btn btn-primary">Submit</button>
+            <a href="/sharedBlogs" class="btn btn-secondary">Entrar com a convidat</a>
+            <a href="/register" class="btn btn-warning">Registra't</a>
+        </form>
+    </div>
 </main>
 
 <div class="modal" tabindex="-1" id="loadingModal">

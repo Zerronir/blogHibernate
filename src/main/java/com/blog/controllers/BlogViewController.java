@@ -34,6 +34,19 @@ public class BlogViewController {
         model.addAttribute("postList", postList);
         return "blogView/index";
     }
+
+    @GetMapping("/{slug}/articles")
+    public String postList(@PathVariable(value = "slug") String slug, Model model) {
+        Blog blog = blogService.findBySlugEquals(slug);
+        Set<Post> postSet = postService.getAllByBlogIdEquals(blog.getId());
+        User u = (User) httpSession.getAttribute("user");
+        model.addAttribute("blog", blog);
+        model.addAttribute("user", u);
+        model.addAttribute("postList", postSet);
+
+        return "blogView/postList";
+    }
+
     // FIN HEADER LINKS //
 
     @GetMapping("/{blogSlug}/{postSlug}")

@@ -10,24 +10,27 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/${blog.slug}">Inici <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/${blog.slug}">Inici</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/${blog.slug}/postList">Llistat de posts</a>
+                    <a class="nav-link" href="/${blog.slug}/articles">Llistat de posts</a>
                 </li>
-                <li class="nav-item">
+                <%--<li class="nav-item">
                     <a class="nav-link" href="/${blog.slug}/categoryList">Categories</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Llistes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/${blog.slug}/usersList">Llista d'usuaris</a>
-                        <a class="dropdown-item" href="/admin/${blog.slug}/postList">Another action</a>
-                    </div>
-                </li>
+                </li>--%>
+                <c:choose>
+                    <c:when test="${user != null}">
+                        <li>
+                            <a href="/" class="nav-link">Tornar al panell d'administració</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a href="/sharedBlogs" class="nav-link">Llistat de blogs oberts</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
             <ul class="navbar-nav form-inline my-2 my-lg-0">
                 <c:choose>
